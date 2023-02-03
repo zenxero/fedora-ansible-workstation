@@ -6,11 +6,18 @@
 # This task installs extra repos and packages on the system.
 #
 
-- name: Add the flathub flatpak repository
-  community.general.flatpak_remote:
-    name: flathub
-    state: present
-    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+# Adding the flathub repo in this way seems to be broken at the moment
+# https://stackoverflow.com/questions/73090882/ansible-added-flathub-repo-isnt-recognized
+# https://github.com/ansible-collections/community.general/issues/3118
+# - name: Add the flathub flatpak repository
+#   community.general.flatpak_remote:
+#     name: flathub
+#     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+#     method: system
+#     state: present
+
+- name: Add flathub repo manually
+  ansible.builtin.shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 - name: Install the Flatseal package from flathub
   community.general.flatpak:
