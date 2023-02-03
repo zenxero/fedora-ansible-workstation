@@ -1,0 +1,189 @@
+---
+
+#
+# extra-repos
+#
+# This task installs extra repos and packages on the system.
+#
+
+- name: Add the flathub flatpak repository
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+
+- name: Install the Flatseal package from flathub
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
+
+- name: Install the ProtonUp-QT package from flathub
+  community.general.flatpak:
+    name: net.davidotek.pupgui2
+    state: present
+
+# Install chrome if the install_chrome variable is true
+- name: Install Chrome
+  when: install_chrome
+  block:
+
+    - name: Import google chrome RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Add google chrome repo
+      ansible.builtin.yum_repository:
+        name: google-chrome
+        description: Google Chrome RPM Repo
+        baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+        gpgcheck: true
+        enabled: 1
+
+    - name: Install google chrome
+      ansible.builtin.dnf:
+        name:
+          - google-chrome
+        state: present
+        update_cache: true
+
+# Install vscode if the install_vscode variable is true
+- name: Install VSCode
+  when: install_vscode
+  block:
+
+    - name: Import vscode RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: Add vscode repo
+      ansible.builtin.yum_repository:
+        name: vscode
+        description: Visual Studio Code
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+        gpgcheck: true
+        enabled: 1
+
+    - name: Install vscode
+      ansible.builtin.dnf:
+        name:
+          - code
+        state: present
+        update_cache: true
+
+# Install zenpower if the install_zenpower variable is true
+- name: Install Zenpower
+  when: install_zenpower
+  block:
+
+    - name: Enable zenpower copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: birkch/zenpower3
+        state: enabled
+
+    - name: Install zenpower3
+      ansible.builtin.dnf:
+        name:
+          - dkms-zenpower3
+          - zenmonitor3
+          - zenmonitor3-cli
+        state: present
+        update_cache: true
+
+    - name: Add k10temp modprobe blacklist
+      ansible.builtin.lineinfile:
+        path: /etc/modprobe.d/dkms-zenpower3.conf
+        line: blacklist k10temp
+        create: true
+        owner: root
+        mode: 0644
+
+# Install solaar if the install_solaar variable is true
+- name: Install Solaar
+  when: install_solaar
+  block:
+
+    - name: Install solaar
+      ansible.builtin.dnf:
+        name:
+          - solaar
+          - solaar-udev
+        state: present
+        update_cache: true
+
+# Install keepassxc if the install_keepassxc variable is true
+- name: Install KeepassXC
+  when: install_keepassxc
+  block:
+
+    - name: Install keepassxc
+      ansible.builtin.dnf:
+        name:
+          - keepassxc
+        state: present
+        update_cache: true
+
+# Install qemu/libvirt if the install_qemu variable is true
+- name: Install QEMU and Libvirt
+  when: install_qemu
+  block:
+
+    - name: Install QEMU
+      ansible.builtin.dnf:
+        name:
+          - bridge-utils
+          - genisoimage
+          - guestfs-tools
+          - libguestfs-tools
+          - libvirt
+          - libvirt-devel
+          - qemu
+          - qemu-kvm
+          - spice-gtk-tools
+          - swtpm
+          - virt-install
+          - virt-manager
+          - virt-top
+          - virt-viewer
+        state: present
+        update_cache: true
+
+# Install gzdoom if the install_gzdoom variable is true
+- name: Install GZDoom
+  when: install_gzdoom
+  block:
+
+    - name: Enable gzdoom copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: nalika/gzdoom
+        state: enabled
+
+    - name: Install gzdoom
+      ansible.builtin.dnf:
+        name:
+          - gzdoom
+        state: present
+        update_cache: true
+
+# Install dsda-doom if the install_dsdadoom variable is true
+- name: Install dsda-doom
+  when: install_dsdadoom
+  block:
+
+    - name: Enable dsda-doom copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: alastortenebris/dsda-doom
+        state: enabled
+
+    - name: Install dsda-doom
+      ansible.builtin.dnf:
+        name:
+          - dsda-doom
+        state: present
+        update_cache: true

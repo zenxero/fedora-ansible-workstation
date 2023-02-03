@@ -1,0 +1,39 @@
+---
+
+#
+# setup-workstation.yml
+#
+# This playbook sets up the local Fedora system to my specifications.
+#
+
+- name: Run setup-workstation playbook
+  hosts: localhost
+  gather_facts: true
+  connection: local
+  roles:
+    - install-packages
+    - extra-packages
+  vars:
+    # Install Chrome?
+    install_chrome: false
+
+    # Install VSCode?
+    install_vscode: false
+
+    # Install AMD Ryzen Zenpower Module?
+    install_zenpower: false
+
+    # Install the Solaar mouse configuration tool?
+    install_solaar: false
+
+    # Install KeepassXC?
+    install_keepassxc: false
+
+    # Install QEMU and Libvirt?
+    install_qemu: false
+
+    # Install GZDoom?
+    install_gzdoom: false
+
+    # Install dsda-doom?
+    install_dsdadoom: false

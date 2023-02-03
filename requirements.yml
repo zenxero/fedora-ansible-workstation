@@ -1,0 +1,12 @@
+---
+
+#
+# requirements
+#
+# This defines the requirements for the playbook
+#
+
+# We need the community.general galaxy collection for this playbook
+# in order to install flatpaks and add copr repos
+collections:
+  - name: community.general

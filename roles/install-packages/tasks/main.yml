@@ -1,0 +1,84 @@
+---
+
+#
+# install-packages
+#
+# This task installs packages on the system.
+#
+
+- name: Importing RPM Fusion (free) key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-free-fedora-2020
+
+- name: Importing RPM Fusion (non-free) key
+  ansible.builtin.rpm_key:
+    state: present
+    key: https://rpmfusion.org/keys?action=AttachFile&do=get&target=RPM-GPG-KEY-rpmfusion-nonfree-fedora-2020
+
+- name: Enable the RPM Fusion Free repository
+  ansible.builtin.dnf:
+    name: "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+    update_cache: true
+  when: ansible_distribution == 'Fedora'
+
+- name: Enable the RPM Fusion Non-Free repository
+  ansible.builtin.dnf:
+    name: "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_major_version }}.noarch.rpm"
+    state: present
+    update_cache: true
+  when: ansible_distribution == 'Fedora'
+
+- name: Install the 'Development tools' package group
+  ansible.builtin.dnf:
+    name: '@Development tools'
+    state: present
+    update_cache: true
+
+- name: Install the 'C Development Tools and Libraries' package group
+  ansible.builtin.dnf:
+    name: '@C Development Tools and Libraries'
+    state: present
+    update_cache: true
+
+- name: Install packages
+  ansible.builtin.dnf:
+    name:
+      - acpid
+      - akmod-nvidia
+      - curl
+      - dkms
+      - edk2-tools
+      - elfutils-libelf-devel
+      - exfatprogs
+      - gamemode
+      - goverlay
+      - htop
+      - iftop
+      - iotop
+      - ipcalc
+      - jq
+      - kernel-devel
+      - kernel-headers
+      - libglvnd-devel
+      - libglvnd-glx
+      - libglvnd-opengl
+      - libmad-devel
+      - lshw
+      - mangohud
+      - mangohud.i686
+      - ncdu
+      - screen
+      - steam
+      - steam-devices
+      - thunderbird
+      - tree
+      - unzip
+      - usbutils
+      - vim
+      - wget
+      - xdg-user-dirs
+      - xrandr
+    state: present
+    update_cache: true
