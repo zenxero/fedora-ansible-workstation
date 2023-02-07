@@ -46,7 +46,6 @@
   ansible.builtin.dnf:
     name:
       - acpid
-      - akmod-nvidia
       - curl
       - dkms
       - edk2-tools
