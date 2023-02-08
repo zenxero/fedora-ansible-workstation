@@ -53,6 +53,7 @@
       - exfatprogs
       - gamemode
       - goverlay
+      - gstreamer1-plugin-openh264
       - htop
       - iftop
       - iotop
@@ -67,6 +68,7 @@
       - lshw
       - mangohud
       - mangohud.i686
+      - mozilla-openh264
       - ncdu
       - screen
       - steam
