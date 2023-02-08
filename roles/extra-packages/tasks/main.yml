@@ -55,6 +55,16 @@
         state: present
         update_cache: true
 
+    - name: Remove chrome cronjob
+      ansible.builtin.file:
+        path: /etc/cron.daily/google-chrome
+        state: absent
+
+    - name: Remove chrome etc defaults
+      ansible.builtin.file:
+        path: /etc/defaults/google-chrome
+        state: absent
+
 # Install vscode if the install_vscode variable is true
 - name: Install VSCode
   when: install_vscode
