@@ -13,6 +13,7 @@
   roles:
     - install-packages
     - extra-packages
+    - autofs
   vars:
     # Install Chrome?
     install_chrome: false
@@ -37,3 +38,9 @@
 
     # Install dsda-doom?
     install_dsdadoom: false
+
+    # Configure Synology and Freenas autofs shares?
+    # If yes, set the IPs of the NAS devices
+    configure_autofs_shares: false
+    synology_ip:
+    freenas_ip:

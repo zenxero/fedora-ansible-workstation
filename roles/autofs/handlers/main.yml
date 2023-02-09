@@ -1,0 +1,13 @@
+---
+
+#
+# autofs service handler
+#
+# Restart only when changes are made.
+#
+
+- name: Restart autofs
+  ansible.builtin.service:
+    name: autofs
+    state: restarted
+    enabled: true

@@ -1,0 +1,107 @@
+---
+
+#
+# autofs
+#
+# This task configures the autofs service for my synology shares.
+#
+
+# Install and configure autofs shares if the
+# configure_autofs_shares variable is true
+
+- name: Install autofs
+  when: configure_autofs_shares
+  block:
+
+    - name: Install autofs
+      ansible.builtin.dnf:
+        name:
+          - autofs
+          - nfs-utils
+        state: present
+        update_cache: true
+
+    - name: Unmount NAS shares before trying to make changes
+      ansible.posix.mount:
+        path: "{{ item }}"
+        state: unmounted
+      with_items:
+        - /synology/archive
+        - /synology/dump
+        - /synology/games
+        - /synology/music
+        - /synology/photos
+        - /synology/videos
+        - /freenas/archive
+        - /freenas/dump
+        - /freenas/games
+        - /freenas/mirrors
+        - /freenas/music
+        - /freenas/photos
+        - /freenas/videos
+
+    - name: Create directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        mode: 0755
+      with_items:
+        - /etc/autofs
+        - /etc/autofs/synology
+        - /etc/autofs/freenas
+        - /auto.master.d
+        - /synology
+        - /synology/archive
+        - /synology/dump
+        - /synology/games
+        - /synology/music
+        - /synology/photos
+        - /synology/videos
+        - /freenas
+        - /freenas/archive
+        - /freenas/dump
+        - /freenas/games
+        - /freenas/mirrors
+        - /freenas/music
+        - /freenas/photos
+        - /freenas/videos
+
+    - name: Configure synology auto.master.d
+      ansible.builtin.copy:
+        src: files/synology.autofs
+        dest: /etc/auto.master.d/synology.autofs
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Restart autofs
+
+    - name: Configure freenas auto.master.d
+      ansible.builtin.copy:
+        src: files/freenas.autofs
+        dest: /etc/auto.master.d/freenas.autofs
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Restart autofs
+
+    - name: Template synology auto.direct
+      ansible.builtin.template:
+        src: templates/synology-auto.direct.j2
+        dest: /etc/autofs/synology/auto.direct
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Restart autofs
+
+    - name: Template freenas auto.direct
+      ansible.builtin.template:
+        src: templates/freenas-auto.direct.j2
+        dest: /etc/autofs/freenas/auto.direct
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Restart autofs
