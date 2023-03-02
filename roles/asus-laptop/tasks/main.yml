@@ -1,0 +1,46 @@
+---
+
+#
+# asus-laptop
+#
+# This task installs stuff related to asus rog laptops with
+# switchable nvidia graphics.
+#
+
+# Install asus linux stuff if the install_asus_linux variable is true
+- name: Install asus linux stuff
+  when: install_asus_linux
+  block:
+
+    - name: Install asus linux copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: lukenukem/asus-linux
+        state: enabled
+
+    - name: Install asus linux stuff
+      ansible.builtin.dnf:
+        name:
+          - kernel-devel
+          - akmod-nvidia
+          - xorg-x11-drv-nvidia-cuda
+          - asusctl
+          - supergfxctl
+          - asusctl-rog-gui
+        state: present
+        update_cache: true
+      notify:
+        - Restart nvidia-hibernate
+        - Restart nvidia-suspend
+        - Restart nvidia-resume
+        - Restart supergfxd
+
+    - name: Copy grub file
+      ansible.builtin.copy:
+        src: files/grub
+        dest: /etc/default/grub
+        owner: root
+        group: root
+        mode: 0644
+      notify:
+        - Make grub

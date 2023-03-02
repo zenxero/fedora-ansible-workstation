@@ -1,0 +1,34 @@
+---
+
+#
+# nvidia service handlers
+#
+# Restart only when changes are made.
+#
+
+- name: Restart nvidia-hibernate
+  ansible.builtin.service:
+    name: nvidia-hibernate
+    state: restarted
+    enabled: true
+
+- name: Restart nvidia-suspend
+  ansible.builtin.service:
+    name: nvidia-suspend
+    state: restarted
+    enabled: true
+
+- name: Restart nvidia-resume
+  ansible.builtin.service:
+    name: nvidia-resume
+    state: restarted
+    enabled: true
+
+- name: Restart supergfxd
+  ansible.builtin.service:
+    name: supergfxd
+    state: restarted
+    enabled: true
+
+- name: Make grub
+  ansible.builtin.command: grub2-mkconfig -o /etc/grub2.cfg

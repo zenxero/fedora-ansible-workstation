@@ -14,7 +14,11 @@
     - install-packages
     - extra-packages
     - autofs
+    - asus-laptop
   vars:
+    # Install Asus linux laptop stuff?
+    install_asus_linux: false
+
     # Install Chrome?
     install_chrome: false
 
