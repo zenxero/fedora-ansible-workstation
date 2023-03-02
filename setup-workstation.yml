@@ -21,6 +21,9 @@
     # Install VSCode?
     install_vscode: false
 
+    # Install VSCodium?
+    install_vscodium: false
+
     # Install AMD Ryzen Zenpower Module?
     install_zenpower: false
 

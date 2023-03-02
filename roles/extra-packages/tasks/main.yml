@@ -91,6 +91,32 @@
         state: present
         update_cache: true
 
+# Install vscodium if the install_vscodium variable is true
+- name: Install VSCodium
+  when: install_vscodium
+  block:
+
+    - name: Import vscodium RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+
+    - name: Add vscodium repo
+      ansible.builtin.yum_repository:
+        name: download.vscodium.com
+        baseurl: https://download.vscodium.com/rpms/
+        gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+        gpgcheck: true
+        repo_gpgcheck: true
+        enabled: 1
+
+    - name: Install vscodium
+      ansible.builtin.dnf:
+        name:
+          - codium
+        state: present
+        update_cache: true
+
 # Install zenpower if the install_zenpower variable is true
 - name: Install Zenpower
   when: install_zenpower
