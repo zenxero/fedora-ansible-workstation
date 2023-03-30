@@ -22,6 +22,9 @@
     # Install Chrome?
     install_chrome: false
 
+    # Install Microsoft Edge?
+    install_edge: false
+
     # Install VSCode?
     install_vscode: false
 
