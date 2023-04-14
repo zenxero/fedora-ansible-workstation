@@ -29,6 +29,34 @@
     name: net.davidotek.pupgui2
     state: present
 
+# Install Steam if the install_steam variable is true
+- name: Install Steam
+  when: install_steam
+  block:
+
+    - name: Install Steam
+      ansible.builtin.dnf:
+        name:
+          - steam
+          - steam-devices
+          - gamemode
+        state: present
+        update_cache: true
+
+# Install Mangohud if the install_mangohud variable is true
+- name: Install Mangohud
+  when: install_mangohud
+  block:
+
+    - name: Install Mangohud
+      ansible.builtin.dnf:
+        name:
+          - mangohud
+          - mangohud.i686
+          - goverlay
+        state: present
+        update_cache: true
+
 # Install chrome if the install_chrome variable is true
 - name: Install Chrome
   when: install_chrome
@@ -54,16 +82,6 @@
           - google-chrome-stable
         state: present
         update_cache: true
-
-    - name: Remove chrome cronjob
-      ansible.builtin.file:
-        path: /etc/cron.daily/google-chrome
-        state: absent
-
-    - name: Remove chrome etc defaults
-      ansible.builtin.file:
-        path: /etc/defaults/google-chrome
-        state: absent
 
 # Install edge if the install_edge variable is true
 - name: Install MS Edge
