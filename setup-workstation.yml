@@ -19,6 +19,12 @@
     # Install Asus linux laptop stuff?
     install_asus_linux: false
 
+    # Install Steam?
+    install_steam: false
+
+    # Install Mangohud Performance Overlay?
+    install_mangohud: false
+
     # Install Chrome?
     install_chrome: false
 
