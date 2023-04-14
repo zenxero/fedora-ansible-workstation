@@ -189,6 +189,18 @@
         owner: root
         mode: 0644
 
+# Install corectrl if the install_corectrl variable is true
+- name: Install Corectrl
+  when: install_corectrl
+  block:
+
+    - name: Install Corectrl
+      ansible.builtin.dnf:
+        name:
+          - corectrl
+        state: present
+        update_cache: true
+
 # Install solaar if the install_solaar variable is true
 - name: Install Solaar
   when: install_solaar

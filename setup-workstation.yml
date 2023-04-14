@@ -40,6 +40,9 @@
     # Install AMD Ryzen Zenpower Module?
     install_zenpower: false
 
+    # Install Corectrl Performance Tuning Utility?
+    install_corectrl: false
+
     # Install the Solaar mouse configuration tool?
     install_solaar: false
 
