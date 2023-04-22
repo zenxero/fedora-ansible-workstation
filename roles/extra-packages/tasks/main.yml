@@ -46,7 +46,7 @@
           - make
           - procps
           - unzip
-          - wget 
+          - wget
           - xdotool
           - xprop
           - xrandr
@@ -120,6 +120,18 @@
       ansible.builtin.dnf:
         name:
           - microsoft-edge-stable
+        state: present
+        update_cache: true
+
+# Install thunderbird if the install_thunderbird variable is true
+- name: Install Thunderbird
+  when: install_thunderbird
+  block:
+
+    - name: Install Thunderbird
+      ansible.builtin.dnf:
+        name:
+          - thunderbird
         state: present
         update_cache: true
 

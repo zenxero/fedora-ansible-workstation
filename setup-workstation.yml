@@ -31,6 +31,9 @@
     # Install Microsoft Edge?
     install_edge: false
 
+    # Install Thunderbird?
+    install_thunderbird: false
+
     # Install VSCode?
     install_vscode: false
 
