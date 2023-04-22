@@ -40,6 +40,19 @@
           - steam
           - steam-devices
           - gamemode
+          - gamescope
+          - gawk
+          - make
+          - procps
+          - unzip
+          - wget 
+          - xdotool
+          - xprop
+          - xrandr
+          - vim
+          - xwininfo
+          - yad
+          - p7zip
         state: present
         update_cache: true
 
