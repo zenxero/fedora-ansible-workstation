@@ -41,6 +41,7 @@
           - steam-devices
           - gamemode
           - gamescope
+          - winetricks
           - gawk
           - make
           - procps
