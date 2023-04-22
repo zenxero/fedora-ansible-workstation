@@ -42,18 +42,6 @@
           - gamemode
           - gamescope
           - winetricks
-          - gawk
-          - make
-          - procps
-          - unzip
-          - wget
-          - xdotool
-          - xprop
-          - xrandr
-          - vim
-          - xwininfo
-          - yad
-          - p7zip
         state: present
         update_cache: true
 

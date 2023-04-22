@@ -51,6 +51,7 @@
       - edk2-tools
       - elfutils-libelf-devel
       - exfatprogs
+      - gawk
       - gstreamer1-plugin-openh264
       - htop
       - iftop
@@ -64,8 +65,11 @@
       - libglvnd-opengl
       - libmad-devel
       - lshw
+      - make
       - mozilla-openh264
       - ncdu
+      - p7zip
+      - procps
       - screen
       - tree
       - unzip
@@ -73,6 +77,10 @@
       - vim
       - wget
       - xdg-user-dirs
+      - xdotool
+      - xprop
       - xrandr
+      - xwininfo
+      - yad
     state: present
     update_cache: true
