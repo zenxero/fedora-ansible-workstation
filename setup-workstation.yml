@@ -49,6 +49,9 @@
     # Install the Solaar mouse configuration tool?
     install_solaar: false
 
+    # Install Kdiskmark disk benchmarking utility?
+    install_kdiskmark: false
+
     # Install KeepassXC?
     install_keepassxc: false
 

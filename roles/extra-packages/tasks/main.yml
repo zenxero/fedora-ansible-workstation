@@ -228,6 +228,18 @@
         state: present
         update_cache: true
 
+# Install kdiskmark if the install_kdiskmark variable is true
+- name: Install Kdiskmark
+  when: install_kdiskmark
+  block:
+
+    - name: Install kdiskmark
+      ansible.builtin.dnf:
+        name:
+          - kdiskmark
+        state: present
+        update_cache: true
+
 # Install keepassxc if the install_keepassxc variable is true
 - name: Install KeepassXC
   when: install_keepassxc
