@@ -11,11 +11,19 @@
   gather_facts: true
   connection: local
   roles:
+    - selinux
+    - firewalld
     - install-packages
     - extra-packages
     - autofs
     - asus-laptop
   vars:
+    # Set SELinux to permissive?
+    selinux_permissive: false
+
+    # Disable firewalld?
+    disable_firewalld: false
+
     # Install Asus linux laptop stuff?
     install_asus_linux: false
 
