@@ -1,0 +1,18 @@
+---
+
+#
+# firewalld
+#
+# This task will disable the firewalld service if the
+# variable disable_firewalld is true
+#
+
+- name: Disable firewalld
+  when: disable_firewalld
+  block:
+
+    - name: Stop and disable firewalld service
+      ansible.builtin.service:
+        name: firewalld
+        state: stopped
+        enabled: false
