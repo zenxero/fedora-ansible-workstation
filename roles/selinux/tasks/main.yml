@@ -1,0 +1,17 @@
+---
+
+#
+# selinux
+#
+# This task will set selinux to permissive if the
+# variable selinux_permissive is true
+#
+
+- name: Set SELinux to permissive
+  when: selinux_permissive
+  block:
+
+    - name: Put SELinux in permissive mode
+      ansible.posix.selinux:
+        policy: targeted
+        state: permissive
