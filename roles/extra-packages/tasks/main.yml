@@ -84,32 +84,6 @@
         state: present
         update_cache: true
 
-# Install edge if the install_edge variable is true
-- name: Install MS Edge
-  when: install_edge
-  block:
-
-    - name: Import edge RPM GPG key
-      ansible.builtin.rpm_key:
-        state: present
-        key: https://packages.microsoft.com/keys/microsoft.asc
-
-    - name: Add edge repo
-      ansible.builtin.yum_repository:
-        name: microsoft-edge
-        description: Microsoft Edge RPM Repo
-        baseurl: https://packages.microsoft.com/yumrepos/edge
-        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
-        gpgcheck: true
-        enabled: 1
-
-    - name: Install edge
-      ansible.builtin.dnf:
-        name:
-          - microsoft-edge-stable
-        state: present
-        update_cache: true
-
 # Install thunderbird if the install_thunderbird variable is true
 - name: Install Thunderbird
   when: install_thunderbird

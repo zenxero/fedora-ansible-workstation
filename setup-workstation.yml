@@ -36,9 +36,6 @@
     # Install Chrome?
     install_chrome: false
 
-    # Install Microsoft Edge?
-    install_edge: false
-
     # Install Thunderbird?
     install_thunderbird: false
 
