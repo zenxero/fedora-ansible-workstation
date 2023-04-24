@@ -19,15 +19,15 @@
 - name: Add flathub repo manually
   ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
-- name: Install the Flatseal package from flathub
-  community.general.flatpak:
-    name: com.github.tchx84.Flatseal
-    state: present
+# Install ProtonUp-QT if the install_protonup variable is true
+- name: Install ProtonUp-QT flatpak
+  when: install_protonup
+  block:
 
-- name: Install the ProtonUp-QT package from flathub
-  community.general.flatpak:
-    name: net.davidotek.pupgui2
-    state: present
+    - name: Install the Flatseal package from flathub
+      community.general.flatpak:
+        name: com.github.tchx84.Flatseal
+        state: present
 
 # Install Steam if the install_steam variable is true
 - name: Install Steam
@@ -122,29 +122,15 @@
         state: present
         update_cache: true
 
-# Install vscodium if the install_vscodium variable is true
-- name: Install VSCodium
-  when: install_vscodium
+# Install keepassxc if the install_keepassxc variable is true
+- name: Install KeepassXC
+  when: install_keepassxc
   block:
 
-    - name: Import vscodium RPM GPG key
-      ansible.builtin.rpm_key:
-        state: present
-        key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-
-    - name: Add vscodium repo
-      ansible.builtin.yum_repository:
-        name: download.vscodium.com
-        baseurl: https://download.vscodium.com/rpms/
-        gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
-        gpgcheck: true
-        repo_gpgcheck: true
-        enabled: 1
-
-    - name: Install vscodium
+    - name: Install keepassxc
       ansible.builtin.dnf:
         name:
-          - codium
+          - keepassxc
         state: present
         update_cache: true
 
@@ -188,19 +174,6 @@
         state: present
         update_cache: true
 
-# Install solaar if the install_solaar variable is true
-- name: Install Solaar
-  when: install_solaar
-  block:
-
-    - name: Install solaar
-      ansible.builtin.dnf:
-        name:
-          - solaar
-          - solaar-udev
-        state: present
-        update_cache: true
-
 # Install kdiskmark if the install_kdiskmark variable is true
 - name: Install Kdiskmark
   when: install_kdiskmark
@@ -213,15 +186,16 @@
         state: present
         update_cache: true
 
-# Install keepassxc if the install_keepassxc variable is true
-- name: Install KeepassXC
-  when: install_keepassxc
+# Install solaar if the install_solaar variable is true
+- name: Install Solaar
+  when: install_solaar
   block:
 
-    - name: Install keepassxc
+    - name: Install solaar
       ansible.builtin.dnf:
         name:
-          - keepassxc
+          - solaar
+          - solaar-udev
         state: present
         update_cache: true
 

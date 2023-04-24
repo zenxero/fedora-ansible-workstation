@@ -24,43 +24,40 @@
     # Disable firewalld?
     disable_firewalld: false
 
-    # Install Asus linux laptop stuff?
-    install_asus_linux: false
+    # Install ProtonUp-QT flatpak?
+    install_protonup: false
 
-    # Install Steam?
+    # Install Steam RPM package?
     install_steam: false
 
-    # Install Mangohud Performance Overlay?
+    # Install Mangohud performance overlay RPM package?
     install_mangohud: false
 
-    # Install Chrome?
+    # Install Chrome RPM package?
     install_chrome: false
 
     # Install Thunderbird?
     install_thunderbird: false
 
-    # Install VSCode?
+    # Install VSCode RPM package?
     install_vscode: false
 
-    # Install VSCodium?
-    install_vscodium: false
+    # Install KeepassXC RPM package?
+    install_keepassxc: false
 
-    # Install AMD Ryzen Zenpower Module?
+    # Install AMD Ryzen Zenpower kernel module?
     install_zenpower: false
 
-    # Install Corectrl Performance Tuning Utility?
+    # Install Corectrl performance tuning utility?
     install_corectrl: false
-
-    # Install the Solaar mouse configuration tool?
-    install_solaar: false
 
     # Install Kdiskmark disk benchmarking utility?
     install_kdiskmark: false
 
-    # Install KeepassXC?
-    install_keepassxc: false
+    # Install the Solaar mouse configuration tool?
+    install_solaar: false
 
-    # Install QEMU and Libvirt?
+    # Install QEMU and Libvirt virtualization tools?
     install_qemu: false
 
     # Install GZDoom?
@@ -74,3 +71,6 @@
     configure_autofs_shares: false
     synology_ip:
     freenas_ip:
+
+    # Install Asus linux laptop stuff?
+    install_asus_linux: false
