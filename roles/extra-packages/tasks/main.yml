@@ -41,7 +41,6 @@
           - steam-devices
           - gamemode
           - gamescope
-          - winetricks
         state: present
         update_cache: true
 
