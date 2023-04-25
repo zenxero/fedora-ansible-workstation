@@ -123,6 +123,16 @@
         group: "{{ ansible_facts.env.SUDO_USER }}"
         mode: 0644
 
+# Install Heroic flatpak if the install_heroic_flatpak variable is true
+- name: Install Heroic Games Launcher flatpak
+  when: install_heroic_flatpak
+  block:
+
+    - name: Install the Heroic Games Launcher flatpak from flathub
+      community.general.flatpak:
+        name: com.heroicgameslauncher.hgl
+        state: present
+
 # Install chrome if the install_chrome variable is true
 - name: Install Chrome
   when: install_chrome
