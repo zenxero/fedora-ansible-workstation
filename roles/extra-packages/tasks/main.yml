@@ -19,14 +19,19 @@
 - name: Add flathub repo manually
   ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+- name: Install the Flatseal flatpak from flathub
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
+
 # Install ProtonUp-QT if the install_protonup variable is true
 - name: Install ProtonUp-QT flatpak
   when: install_protonup
   block:
 
-    - name: Install the Flatseal package from flathub
+    - name: Install the ProtonUp-QT flatpak from flathub
       community.general.flatpak:
-        name: com.github.tchx84.Flatseal
+        name: net.davidotek.pupgui2
         state: present
 
 # Install Steam if the install_steam variable is true
