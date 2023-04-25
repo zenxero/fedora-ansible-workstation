@@ -71,7 +71,7 @@
     install_keepassxc: false
 
     # Install KeepassXC flatpak?
-    install_keepassxc_flatpak: true
+    install_keepassxc_flatpak: false
 
 
     # Install OBS Studio flatpak?
