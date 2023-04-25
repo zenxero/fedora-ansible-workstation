@@ -54,6 +54,14 @@
         name: com.valvesoftware.Steam
         state: present
 
+    - name: Install Steam dependencies
+      ansible.builtin.dnf:
+        name:
+          - steam-devices
+          - gamemode
+        state: present
+        update_cache: true
+
 # Install Mangohud if the install_mangohud variable is true
 - name: Install Mangohud
   when: install_mangohud
@@ -68,6 +76,22 @@
         state: present
         update_cache: true
 
+    - name: Create Mangohud config directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.config/MangoHud"
+        state: directory
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0755
+
+    - name: Copy Mangohud config file
+      ansible.builtin.copy:
+        src: files/MangoHud.conf
+        dest: "{{ lookup('env', 'HOME') }}/.config/MangoHud/MangoHud.conf"
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0644
+
 # Install Mangohud flatpak if the install_mangohud_flatpak variable is true
 - name: Install Mangohud flatpak
   when: install_mangohud_flatpak
@@ -77,6 +101,22 @@
       community.general.flatpak:
         name: org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
         state: present
+
+    - name: Create Mangohud config directory within Steam flatpak
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.var/app/com.valvesoftware.Steam/config/MangoHud"
+        state: directory
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0755
+
+    - name: Copy Mangohud config file into Steam flatpak
+      ansible.builtin.copy:
+        src: files/MangoHud.conf
+        dest: "{{ lookup('env', 'HOME') }}/.var/app/com.valvesoftware.Steam/config/MangoHud/MangoHud.conf"
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0644
 
 # Install chrome if the install_chrome variable is true
 - name: Install Chrome
