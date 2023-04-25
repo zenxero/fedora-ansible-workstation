@@ -70,6 +70,12 @@
     install_keepassxc_flatpak: true
 
 
+    # Install OBS Studio flatpak?
+    install_obs: false
+
+    # Install VLC flatpak?
+    install_vlc: false
+
     # Install AMD Ryzen Zenpower kernel module?
     install_zenpower: false
 

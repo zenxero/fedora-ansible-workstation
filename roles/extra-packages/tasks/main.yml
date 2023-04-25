@@ -239,6 +239,26 @@
         name: org.keepassxc.KeePassXC
         state: present
 
+# Install OBS flatpak if the install_obs variable is true
+- name: Install OBS flatpak
+  when: install_obs
+  block:
+
+    - name: Install the OBS Studio flatpak from flathub
+      community.general.flatpak:
+        name: com.obsproject.Studio
+        state: present
+
+# Install VLC flatpak if the install_vlc variable is true
+- name: Install VLC flatpak
+  when: install_vlc
+  block:
+
+    - name: Install the VLC flatpak from flathub
+      community.general.flatpak:
+        name: org.videolan.VLC
+        state: present
+
 # Install zenpower if the install_zenpower variable is true
 - name: Install Zenpower
   when: install_zenpower
