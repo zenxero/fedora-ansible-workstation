@@ -44,6 +44,16 @@
         state: present
         update_cache: true
 
+# Install Steam flatpak if the install_steam_flatpak variable is true
+- name: Install Steam flatpak
+  when: install_steam_flatpak
+  block:
+
+    - name: Install the Steam flatpak from flathub
+      community.general.flatpak:
+        name: com.valvesoftware.Steam
+        state: present
+
 # Install Mangohud if the install_mangohud variable is true
 - name: Install Mangohud
   when: install_mangohud
@@ -57,6 +67,16 @@
           - goverlay
         state: present
         update_cache: true
+
+# Install Mangohud flatpak if the install_mangohud_flatpak variable is true
+- name: Install Mangohud flatpak
+  when: install_mangohud_flatpak
+  block:
+
+    - name: Install the Mangohud flatpak from flathub
+      community.general.flatpak:
+        name: org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
+        state: present
 
 # Install chrome if the install_chrome variable is true
 - name: Install Chrome
@@ -84,6 +104,16 @@
         state: present
         update_cache: true
 
+# Install Chrome flatpak if the install_chrome_flatpak variable is true
+- name: Install Chrome flatpak
+  when: install_chrome_flatpak
+  block:
+
+    - name: Install the Chrome flatpak from flathub
+      community.general.flatpak:
+        name: com.google.Chrome
+        state: present
+
 # Install thunderbird if the install_thunderbird variable is true
 - name: Install Thunderbird
   when: install_thunderbird
@@ -95,6 +125,16 @@
           - thunderbird
         state: present
         update_cache: true
+
+# Install Thunderbird flatpak if the install_thunderbird_flatpak variable is true
+- name: Install Thunderbird flatpak
+  when: install_thunderbird_flatpak
+  block:
+
+    - name: Install the Thunderbird flatpak from flathub
+      community.general.flatpak:
+        name: org.mozilla.Thunderbird
+        state: present
 
 # Install vscode if the install_vscode variable is true
 - name: Install VSCode
@@ -122,6 +162,16 @@
         state: present
         update_cache: true
 
+# Install VSCode flatpak if the install_vscode_flatpak variable is true
+- name: Install VSCode flatpak
+  when: install_vscode_flatpak
+  block:
+
+    - name: Install the VSCode flatpak from flathub
+      community.general.flatpak:
+        name: com.visualstudio.code
+        state: present
+
 # Install keepassxc if the install_keepassxc variable is true
 - name: Install KeepassXC
   when: install_keepassxc
@@ -133,6 +183,16 @@
           - keepassxc
         state: present
         update_cache: true
+
+# Install KeepassXC flatpak if the install_keepassxc_flatpak variable is true
+- name: Install KeepassXC flatpak
+  when: install_keepassxc_flatpak
+  block:
+
+    - name: Install the KeepassXC flatpak from flathub
+      community.general.flatpak:
+        name: org.keepassxc.KeePassXC
+        state: present
 
 # Install zenpower if the install_zenpower variable is true
 - name: Install Zenpower

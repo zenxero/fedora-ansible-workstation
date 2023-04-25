@@ -27,23 +27,48 @@
     # Install ProtonUp-QT flatpak?
     install_protonup: false
 
+
     # Install Steam RPM package?
     install_steam: false
+
+    # Install Steam flatpak?
+    install_steam_flatpak: false
+
 
     # Install Mangohud performance overlay RPM package?
     install_mangohud: false
 
+    # Install Mangohud performance overlay flatpak?
+    install_mangohud_flatpak: false
+
+
     # Install Chrome RPM package?
     install_chrome: false
 
-    # Install Thunderbird?
+    # Install Chrome flatpak?
+    install_chrome_flatpak: false
+
+
+    # Install Thunderbird RPM package?
     install_thunderbird: false
+
+    # Install Thunderbird flatpak?
+    install_thunderbird_flatpak: false
+
 
     # Install VSCode RPM package?
     install_vscode: false
 
+    # Install VSCode flatpak?
+    install_vscode_flatpak: false
+
+
     # Install KeepassXC RPM package?
     install_keepassxc: false
+
+    # Install KeepassXC flatpak?
+    install_keepassxc_flatpak: true
+
 
     # Install AMD Ryzen Zenpower kernel module?
     install_zenpower: false
