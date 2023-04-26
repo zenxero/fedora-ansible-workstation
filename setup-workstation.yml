@@ -15,18 +15,33 @@
     - firewalld
     - install-packages
     - extra-packages
+    - steam
+    - protonup
+    - mangohud
+    - heroic
+    - lutris
+    - gzdoom
+    - dsda-doom
+    - chrome
+    - corectrl
+    - kdiskmark
+    - keepassxc
+    - obs
+    - qemu
+    - solaar
+    - thunderbird
+    - vlc
+    - vscode
+    - zenpower
     - autofs
     - asus-laptop
   vars:
-    # Set SELinux to permissive?
-    selinux_permissive: false
-
-    # Disable firewalld?
-    disable_firewalld: false
+    ############################
+    ######     Gaming     ######
+    ############################
 
     # Install ProtonUp-QT flatpak?
     install_protonup: false
-
 
     # Install Steam RPM package?
     install_steam: false
@@ -34,17 +49,34 @@
     # Install Steam flatpak?
     install_steam_flatpak: false
 
-
     # Install Mangohud performance overlay RPM package?
     install_mangohud: false
 
     # Install Mangohud performance overlay flatpak?
     install_mangohud_flatpak: false
 
-
     # Install Heroic Games Launcher flatpak?
     install_heroic_flatpak: false
 
+    # Install Lutris RPM package?
+    install_lutris: false
+
+    # Install Lutris flatpak?
+    install_lutris_flatpak: false
+
+    # Install GZDoom?
+    install_gzdoom: false
+
+    # Install GZDoom flatpak?
+    install_gzdoom_flatpak: false
+
+    # Install dsda-doom?
+    install_dsdadoom: false
+
+
+    ############################
+    ######      Misc      ######
+    ############################
 
     # Install Chrome RPM package?
     install_chrome: false
@@ -52,13 +84,11 @@
     # Install Chrome flatpak?
     install_chrome_flatpak: false
 
-
     # Install Thunderbird RPM package?
     install_thunderbird: false
 
     # Install Thunderbird flatpak?
     install_thunderbird_flatpak: false
-
 
     # Install VSCode RPM package?
     install_vscode: false
@@ -66,19 +96,28 @@
     # Install VSCode flatpak?
     install_vscode_flatpak: false
 
-
     # Install KeepassXC RPM package?
     install_keepassxc: false
 
     # Install KeepassXC flatpak?
     install_keepassxc_flatpak: false
 
-
     # Install OBS Studio flatpak?
     install_obs: false
 
     # Install VLC flatpak?
     install_vlc: false
+
+
+    ############################
+    ###### System Configs ######
+    ############################
+
+    # Set SELinux to permissive?
+    selinux_permissive: false
+
+    # Disable firewalld?
+    disable_firewalld: false
 
     # Install AMD Ryzen Zenpower kernel module?
     install_zenpower: false
@@ -95,12 +134,6 @@
     # Install QEMU and Libvirt virtualization tools?
     install_qemu: false
 
-    # Install GZDoom?
-    install_gzdoom: false
-
-    # Install dsda-doom?
-    install_dsdadoom: false
-
     # Configure Synology and Freenas autofs shares?
     # If yes, set the IPs of the NAS devices
     configure_autofs_shares: false
@@ -108,4 +141,5 @@
     freenas_ip:
 
     # Install Asus linux laptop stuff?
+    # https://asus-linux.org/wiki/fedora-guide/
     install_asus_linux: false

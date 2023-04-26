@@ -1,0 +1,40 @@
+---
+
+#
+# Steam
+#
+# This task installs either the RPM or Flatpak version of Steam
+#
+
+# Install Steam if the install_steam variable is true
+- name: Install Steam
+  when: install_steam
+  block:
+
+    - name: Install Steam
+      ansible.builtin.dnf:
+        name:
+          - steam
+          - steam-devices
+          - gamemode
+          - gamescope
+        state: present
+        update_cache: true
+
+# Install Steam flatpak if the install_steam_flatpak variable is true
+- name: Install Steam flatpak
+  when: install_steam_flatpak
+  block:
+
+    - name: Install the Steam flatpak from flathub
+      community.general.flatpak:
+        name: com.valvesoftware.Steam
+        state: present
+
+    - name: Install Steam dependencies
+      ansible.builtin.dnf:
+        name:
+          - steam-devices
+          - gamemode
+        state: present
+        update_cache: true

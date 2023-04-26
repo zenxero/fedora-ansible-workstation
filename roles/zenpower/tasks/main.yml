@@ -1,0 +1,35 @@
+---
+
+#
+# Zenpower
+#
+# This task installs the Zenpower Ryzen monitoring kernel module
+#
+
+# Install zenpower if the install_zenpower variable is true
+- name: Install Zenpower
+  when: install_zenpower
+  block:
+
+    - name: Enable zenpower copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: birkch/zenpower3
+        state: enabled
+
+    - name: Install zenpower3
+      ansible.builtin.dnf:
+        name:
+          - dkms-zenpower3
+          - zenmonitor3
+          - zenmonitor3-cli
+        state: present
+        update_cache: true
+
+    - name: Add k10temp modprobe blacklist
+      ansible.builtin.lineinfile:
+        path: /etc/modprobe.d/dkms-zenpower3.conf
+        line: blacklist k10temp
+        create: true
+        owner: root
+        mode: 0644

@@ -1,0 +1,32 @@
+---
+
+#
+# QEMU
+#
+# This task installs QEMU and associated packages
+#
+
+# Install qemu/libvirt if the install_qemu variable is true
+- name: Install QEMU and Libvirt
+  when: install_qemu
+  block:
+
+    - name: Install QEMU
+      ansible.builtin.dnf:
+        name:
+          - bridge-utils
+          - genisoimage
+          - guestfs-tools
+          - libguestfs-tools
+          - libvirt
+          - libvirt-devel
+          - qemu
+          - qemu-kvm
+          - spice-gtk-tools
+          - swtpm
+          - virt-install
+          - virt-manager
+          - virt-top
+          - virt-viewer
+        state: present
+        update_cache: true

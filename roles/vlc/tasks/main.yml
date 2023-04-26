@@ -1,0 +1,18 @@
+---
+
+#
+# VLC
+#
+# This task installs the Flatpak version of VLC
+#
+
+
+# Install VLC flatpak if the install_vlc variable is true
+- name: Install VLC flatpak
+  when: install_vlc
+  block:
+
+    - name: Install the VLC flatpak from flathub
+      community.general.flatpak:
+        name: org.videolan.VLC
+        state: present

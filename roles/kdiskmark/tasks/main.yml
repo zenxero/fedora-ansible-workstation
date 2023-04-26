@@ -1,0 +1,19 @@
+---
+
+#
+# Kdiskmark
+#
+# This task installs the Kdiskmark disk speed testing utility
+#
+
+# Install kdiskmark if the install_kdiskmark variable is true
+- name: Install Kdiskmark
+  when: install_kdiskmark
+  block:
+
+    - name: Install kdiskmark
+      ansible.builtin.dnf:
+        name:
+          - kdiskmark
+        state: present
+        update_cache: true

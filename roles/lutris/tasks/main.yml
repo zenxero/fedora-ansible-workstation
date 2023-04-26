@@ -1,0 +1,29 @@
+---
+
+#
+# Lutris
+#
+# This task installs either the RPM or Flatpak version of Lutris
+#
+
+# Install lutris if the install_lutris variable is true
+- name: Install Lutris
+  when: install_lutris
+  block:
+
+    - name: Install Lutris
+      ansible.builtin.dnf:
+        name:
+          - lutris
+        state: present
+        update_cache: true
+
+# Install lutris flatpak if the install_lutris_flatpak variable is true
+- name: Install Lutris flatpak
+  when: install_lutris_flatpak
+  block:
+
+    - name: Install the Lutris flatpak from flathub
+      community.general.flatpak:
+        name: net.lutris.Lutris
+        state: present

@@ -1,0 +1,43 @@
+---
+
+#
+# Google Chrome
+#
+# This task installs either the RPM or Flatpak version of Chrome
+#
+
+# Install chrome if the install_chrome variable is true
+- name: Install Chrome
+  when: install_chrome
+  block:
+
+    - name: Import google chrome RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://dl.google.com/linux/linux_signing_key.pub
+
+    - name: Add google chrome repo
+      ansible.builtin.yum_repository:
+        name: google-chrome
+        description: Google Chrome RPM Repo
+        baseurl: https://dl.google.com/linux/chrome/rpm/stable/x86_64
+        gpgkey: https://dl.google.com/linux/linux_signing_key.pub
+        gpgcheck: true
+        enabled: 1
+
+    - name: Install google chrome
+      ansible.builtin.dnf:
+        name:
+          - google-chrome-stable
+        state: present
+        update_cache: true
+
+# Install Chrome flatpak if the install_chrome_flatpak variable is true
+- name: Install Chrome flatpak
+  when: install_chrome_flatpak
+  block:
+
+    - name: Install the Chrome flatpak from flathub
+      community.general.flatpak:
+        name: com.google.Chrome
+        state: present

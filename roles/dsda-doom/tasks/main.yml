@@ -1,0 +1,25 @@
+---
+
+#
+# dsda-doom
+#
+# This task installs the dsda-doom doom source port
+#
+
+# Install dsda-doom if the install_dsdadoom variable is true
+- name: Install dsda-doom
+  when: install_dsdadoom
+  block:
+
+    - name: Enable dsda-doom copr repo
+      community.general.copr:
+        host: copr.fedorainfracloud.org
+        name: alastortenebris/dsda-doom
+        state: enabled
+
+    - name: Install dsda-doom
+      ansible.builtin.dnf:
+        name:
+          - dsda-doom
+        state: present
+        update_cache: true

@@ -1,0 +1,43 @@
+---
+
+#
+# VSCode
+#
+# This task installs either the RPM or Flatpak version of VSCode
+#
+
+# Install vscode if the install_vscode variable is true
+- name: Install VSCode
+  when: install_vscode
+  block:
+
+    - name: Import vscode RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://packages.microsoft.com/keys/microsoft.asc
+
+    - name: Add vscode repo
+      ansible.builtin.yum_repository:
+        name: vscode
+        description: Visual Studio Code
+        baseurl: https://packages.microsoft.com/yumrepos/vscode
+        gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+        gpgcheck: true
+        enabled: 1
+
+    - name: Install vscode
+      ansible.builtin.dnf:
+        name:
+          - code
+        state: present
+        update_cache: true
+
+# Install VSCode flatpak if the install_vscode_flatpak variable is true
+- name: Install VSCode flatpak
+  when: install_vscode_flatpak
+  block:
+
+    - name: Install the VSCode flatpak from flathub
+      community.general.flatpak:
+        name: com.visualstudio.code
+        state: present

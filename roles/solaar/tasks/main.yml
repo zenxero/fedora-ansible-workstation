@@ -1,0 +1,20 @@
+---
+
+#
+# Solaar
+#
+# This task installs the Solaar Logitech mouse utility
+#
+
+# Install solaar if the install_solaar variable is true
+- name: Install Solaar
+  when: install_solaar
+  block:
+
+    - name: Install solaar
+      ansible.builtin.dnf:
+        name:
+          - solaar
+          - solaar-udev
+        state: present
+        update_cache: true

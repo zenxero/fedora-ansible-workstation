@@ -1,0 +1,63 @@
+---
+
+#
+# Mangohud
+#
+# This task installs either the RPM or Flatpak version of Mangohud
+#
+
+# Install Mangohud if the install_mangohud variable is true
+- name: Install Mangohud
+  when: install_mangohud
+  block:
+
+    - name: Install Mangohud
+      ansible.builtin.dnf:
+        name:
+          - mangohud
+          - mangohud.i686
+          - goverlay
+        state: present
+        update_cache: true
+
+    - name: Create Mangohud config directory
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.config/MangoHud"
+        state: directory
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0755
+
+    - name: Copy Mangohud config file
+      ansible.builtin.copy:
+        src: files/MangoHud.conf
+        dest: "{{ lookup('env', 'HOME') }}/.config/MangoHud/MangoHud.conf"
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0644
+
+# Install Mangohud flatpak if the install_mangohud_flatpak variable is true
+- name: Install Mangohud flatpak
+  when: install_mangohud_flatpak
+  block:
+
+    - name: Install the Mangohud flatpak from flathub
+      community.general.flatpak:
+        name: org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
+        state: present
+
+    - name: Create Mangohud config directory within Steam flatpak
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.var/app/com.valvesoftware.Steam/config/MangoHud"
+        state: directory
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0755
+
+    - name: Copy Mangohud config file into Steam flatpak
+      ansible.builtin.copy:
+        src: files/MangoHud.conf
+        dest: "{{ lookup('env', 'HOME') }}/.var/app/com.valvesoftware.Steam/config/MangoHud/MangoHud.conf"
+        owner: "{{ ansible_facts.env.SUDO_USER }}"
+        group: "{{ ansible_facts.env.SUDO_USER }}"
+        mode: 0644

@@ -1,0 +1,19 @@
+---
+
+#
+# Corectrl
+#
+# This task installs the Corectrl tuning utility
+#
+
+# Install corectrl if the install_corectrl variable is true
+- name: Install Corectrl
+  when: install_corectrl
+  block:
+
+    - name: Install Corectrl
+      ansible.builtin.dnf:
+        name:
+          - corectrl
+        state: present
+        update_cache: true

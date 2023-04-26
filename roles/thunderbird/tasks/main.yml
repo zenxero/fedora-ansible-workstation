@@ -1,0 +1,29 @@
+---
+
+#
+# Thunderbird
+#
+# This task installs either the RPM or Flatpak version of Thunderbird
+#
+
+# Install thunderbird if the install_thunderbird variable is true
+- name: Install Thunderbird
+  when: install_thunderbird
+  block:
+
+    - name: Install Thunderbird
+      ansible.builtin.dnf:
+        name:
+          - thunderbird
+        state: present
+        update_cache: true
+
+# Install Thunderbird flatpak if the install_thunderbird_flatpak variable is true
+- name: Install Thunderbird flatpak
+  when: install_thunderbird_flatpak
+  block:
+
+    - name: Install the Thunderbird flatpak from flathub
+      community.general.flatpak:
+        name: org.mozilla.Thunderbird
+        state: present
