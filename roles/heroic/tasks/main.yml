@@ -6,6 +6,20 @@
 # This task installs the Flatpak version Heroic Games Launcher
 #
 
+# Install Heroic if the install_heroic variable is true
+- name: Install Heroic
+  when: install_heroic
+  block:
+
+    - name: Install Heroic
+      ansible.builtin.dnf:
+        name:
+          - 'https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.7.0/heroic-2.7.0.x86_64.rpm'
+        state: present
+        disable_gpg_check: true
+        validate_certs: false
+        update_cache: true
+
 # Install Heroic flatpak if the install_heroic_flatpak variable is true
 - name: Install Heroic flatpak
   when: install_heroic_flatpak

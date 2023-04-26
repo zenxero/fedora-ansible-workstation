@@ -55,6 +55,9 @@
     # Install Mangohud performance overlay flatpak?
     install_mangohud_flatpak: false
 
+    # Install Heroic Games Launcher RPM package?
+    install_heroic: false
+
     # Install Heroic Games Launcher flatpak?
     install_heroic_flatpak: false
 
