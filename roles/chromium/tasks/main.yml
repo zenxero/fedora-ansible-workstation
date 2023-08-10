@@ -1,0 +1,29 @@
+---
+
+#
+# Chromium
+#
+# This task installs either the RPM or Flatpak version of Chromium
+#
+
+# Install chrome if the install_chromium variable is true
+- name: Install Chromium
+  when: install_chromium
+  block:
+
+    - name: Install chromium
+      ansible.builtin.dnf:
+        name:
+          - chromium
+        state: present
+        update_cache: true
+
+# Install Chromium flatpak if the install_chromium_flatpak variable is true
+- name: Install Chromium flatpak
+  when: install_chromium_flatpak
+  block:
+
+    - name: Install the Chromium flatpak from flathub
+      community.general.flatpak:
+        name: org.chromium.Chromium
+        state: present

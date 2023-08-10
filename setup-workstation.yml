@@ -87,6 +87,12 @@
     # Install Chrome flatpak?
     install_chrome_flatpak: false
 
+    # Install Chromium RPM Package?
+    install_chromium: false
+
+    # Install Chromium flatpak?
+    install_chromium_flatpak: false
+
     # Install Thunderbird RPM package?
     install_thunderbird: false
 
