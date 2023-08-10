@@ -46,6 +46,7 @@
   ansible.builtin.dnf:
     name:
       - acpid
+      - cmake
       - curl
       - dkms
       - edk2-tools
@@ -60,10 +61,15 @@
       - jq
       - kernel-devel
       - kernel-headers
+      - libcurl
+      - libcurl-devel
       - libglvnd-devel
       - libglvnd-glx
       - libglvnd-opengl
+      - libmad
       - libmad-devel
+      - libvorbis
+      - libvorbis-devel
       - lshw
       - make
       - mozilla-openh264
@@ -71,6 +77,8 @@
       - p7zip
       - procps
       - screen
+      - SDL2
+      - SDL2-devel
       - tree
       - unzip
       - usbutils
