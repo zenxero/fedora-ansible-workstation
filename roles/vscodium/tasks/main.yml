@@ -1,0 +1,44 @@
+---
+
+#
+# VSCodium
+#
+# This task installs either the RPM or Flatpak version of VSCodium
+#
+
+# Install vscodium if the install_vscodium variable is true
+- name: Install VSCodium
+  when: install_vscodium
+  block:
+
+    - name: Import vscodium RPM GPG key
+      ansible.builtin.rpm_key:
+        state: present
+        key: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+
+    - name: Add vscodium repo
+      ansible.builtin.yum_repository:
+        name: vscodium
+        description: VSCodium
+        baseurl: https://download.vscodium.com/rpms
+        gpgkey: https://gitlab.com/paulcarroty/vscodium-deb-rpm-repo/-/raw/master/pub.gpg
+        gpgcheck: true
+        repo_gpgcheck: true
+        enabled: 1
+
+    - name: Install vscodium
+      ansible.builtin.dnf:
+        name:
+          - codium
+        state: present
+        update_cache: true
+
+# Install VSCodium flatpak if the install_vscodium_flatpak variable is true
+- name: Install VSCodium flatpak
+  when: install_vscodium_flatpak
+  block:
+
+    - name: Install the VSCodium flatpak from flathub
+      community.general.flatpak:
+        name: com.vscodium.codium
+        state: present

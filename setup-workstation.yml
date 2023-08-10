@@ -33,6 +33,7 @@
     - thunderbird
     - vlc
     - vscode
+    - vscodium
     - zenpower
     - autofs
     - asus-laptop
@@ -105,6 +106,12 @@
 
     # Install VSCode flatpak?
     install_vscode_flatpak: false
+
+    # Install VSCodium RPM package?
+    install_vscodium: false
+
+    # Install VSCodium flatpak?
+    install_vscodium_flatpak: false
 
     # Install KeepassXC RPM package?
     install_keepassxc: false
