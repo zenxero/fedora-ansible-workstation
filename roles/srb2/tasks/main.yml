@@ -1,0 +1,17 @@
+---
+
+#
+# Sonic Robo Blast 2
+#
+# This task installs the Flatpak version of Sonic Robo Blast 2
+#
+
+# Install SRB2 flatpak if the install_srb2_flatpak variable is true
+- name: Install SRB2 flatpak
+  when: install_srb2_flatpak
+  block:
+
+    - name: Install the SRB2 flatpak from flathub
+      community.general.flatpak:
+        name: org.srb2.SRB2
+        state: present

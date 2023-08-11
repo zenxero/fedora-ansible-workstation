@@ -22,6 +22,11 @@
     - lutris
     - gzdoom
     - dsda-doom
+    - openrct2
+    - retroarch
+    - sonic3air
+    - srb2
+    - srb2-kart
     - chrome
     - chromium
     - corectrl
@@ -78,6 +83,20 @@
     # Install dsda-doom?
     install_dsdadoom: false
 
+    # Install OpenRCT2 flatpak?
+    install_openrct2_flatpak: false
+
+    # Install Retroarch flatpak?
+    install_retroarch_flatpak: false
+
+    # Install Sonic Robo Blast 2 flatpak?
+    install_srb2_flatpak: false
+
+    # Install Sonic Robo Blast 2 Kart flatpak?
+    install_srb2kart_flatpak: false
+
+    # Install Sonic 3 AIR flatpak?
+    install_sonic3air_flatpak: false
 
     ############################
     ######      Misc      ######

@@ -1,0 +1,17 @@
+---
+
+#
+# Sonic Robo Blast 2 Kart
+#
+# This task installs the Flatpak version of Sonic Robo Blast 2 Kart
+#
+
+# Install SRB2 Kart flatpak if the install_srb2kart_flatpak variable is true
+- name: Install SRB2 Kart flatpak
+  when: install_srb2kart_flatpak
+  block:
+
+    - name: Install the SRB2 Kart flatpak from flathub
+      community.general.flatpak:
+        name: org.srb2.SRB2Kart
+        state: present
