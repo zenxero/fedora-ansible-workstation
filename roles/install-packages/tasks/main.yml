@@ -54,6 +54,7 @@
       - exfatprogs
       - gawk
       - gstreamer1-plugin-openh264
+      - gtk3
       - htop
       - iftop
       - iotop
@@ -71,6 +72,7 @@
       - libmad-devel
       - libvorbis
       - libvorbis-devel
+      - libusb
       - lshw
       - make
       - mozilla-openh264
@@ -84,6 +86,7 @@
       - unzip
       - usbutils
       - vim
+      - webkit2gtk3
       - wget
       - xdg-user-dirs
       - xdotool
