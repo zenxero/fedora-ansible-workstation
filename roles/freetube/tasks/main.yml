@@ -1,0 +1,18 @@
+---
+
+#
+# Freetube
+#
+# This task installs the Flatpak version of Freetube
+#
+
+
+# Install Freetube flatpak if the install_freetube variable is true
+- name: Install Freetube flatpak
+  when: install_freetube
+  block:
+
+    - name: Install the Freetube flatpak from flathub
+      community.general.flatpak:
+        name: io.freetubeapp.FreeTube
+        state: present

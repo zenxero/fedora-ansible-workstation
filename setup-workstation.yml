@@ -30,6 +30,7 @@
     - chrome
     - chromium
     - corectrl
+    - freetube
     - kdiskmark
     - keepassxc
     - obs
@@ -143,6 +144,9 @@
 
     # Install VLC flatpak?
     install_vlc: false
+
+    # Install Freetube flatpak?
+    install_freetube: false
 
 
     ############################
