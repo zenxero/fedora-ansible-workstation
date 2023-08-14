@@ -31,6 +31,7 @@
     - chromium
     - corectrl
     - freetube
+    - handbrake
     - kdiskmark
     - keepassxc
     - obs
@@ -75,13 +76,13 @@
     # Install Lutris flatpak?
     install_lutris_flatpak: false
 
-    # Install GZDoom?
+    # Install GZDoom RPM package?
     install_gzdoom: false
 
     # Install GZDoom flatpak?
     install_gzdoom_flatpak: false
 
-    # Install dsda-doom?
+    # Install dsda-doom RPM package?
     install_dsdadoom: false
 
     # Install OpenRCT2 flatpak?
@@ -138,6 +139,12 @@
 
     # Install KeepassXC flatpak?
     install_keepassxc_flatpak: false
+
+    # Install Handbrake RPM package?
+    install_handbrake: false
+
+    # Install Handbrake flatpak?
+    install_handbrake_flatpak: false
 
     # Install OBS Studio flatpak?
     install_obs: false
