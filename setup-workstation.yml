@@ -20,6 +20,7 @@
     - mangohud
     - heroic
     - lutris
+    - ludusavi
     - gzdoom
     - dsda-doom
     - openrct2
@@ -75,6 +76,9 @@
 
     # Install Lutris flatpak?
     install_lutris_flatpak: false
+
+    # Install Ludusavi game save backup utility flatpak?
+    install_ludusavi: false
 
     # Install GZDoom RPM package?
     install_gzdoom: false

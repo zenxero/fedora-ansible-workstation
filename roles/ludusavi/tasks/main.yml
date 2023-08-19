@@ -1,0 +1,18 @@
+---
+
+#
+# Ludusavi
+#
+# This task installs the Flatpak version of Ludusavi
+#
+
+
+# Install Ludusavi flatpak if the install_ludusavi variable is true
+- name: Install Ludusavi flatpak
+  when: install_ludusavi
+  block:
+
+    - name: Install the Ludusavi flatpak from flathub
+      community.general.flatpak:
+        name: com.github.mtkennerly.ludusavi
+        state: present
