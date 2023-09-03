@@ -15,18 +15,29 @@
       ansible.builtin.dnf:
         name:
           - bridge-utils
+          - coreutils
+          - edk2-tools
           - genisoimage
+          - grep
           - guestfs-tools
+          - jq
           - libguestfs-tools
           - libvirt
           - libvirt-devel
+          - lsb
+          - procps
           - qemu
           - qemu-kvm
           - spice-gtk-tools
           - swtpm
+          - usbutils
+          - util-linux
           - virt-install
           - virt-manager
           - virt-top
           - virt-viewer
+          - xdg-user-dirs
+          - xrandr
+          - unzip
         state: present
         update_cache: true
