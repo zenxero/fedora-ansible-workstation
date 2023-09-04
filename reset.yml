@@ -1,0 +1,126 @@
+---
+
+#
+# reset.yml
+#
+# WARNING: This playbook will remove and uninstall all of the
+# things that were installed by the "setup-workstation.yml" playbook.
+#
+# The "localhost" target below has been removed for safety.
+# To run this playbook, put "localhost" after "hosts: " below, then
+# run "ansible-playbook reset.yml"
+#
+
+- name: Reset and remove installed programs
+  hosts:
+  gather_facts: true
+  connection: local
+  tasks:
+
+    - name: Remove packages
+      ansible.builtin.dnf:
+        name:
+          - steam
+          - steam-devices
+          - gamemode
+          - gamescope
+          - mangohud
+          - mangohud.i686
+          - goverlay
+          - lutris
+          - gzdoom
+          - dsda-doom
+          - google-chrome-stable
+          - chromium
+          - corectrl
+          - handbrake
+          - handbrake-gui
+          - kdiskmark
+          - keepassxc
+          - solaar
+          - solaar-udev
+          - thunderbird
+          - code
+          - codium
+        state: absent
+
+    - name: Autoremove unneeded packages installed as dependencies
+      ansible.builtin.dnf:
+        autoremove: true
+
+    - name: Remove flatpaks
+      community.general.flatpak:
+        name:
+          - com.valvesoftware.Steam
+          - net.davidotek.pupgui2
+          - org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
+          - org.freedesktop.Platform.VulkanLayer.MangoHud
+          - com.heroicgameslauncher.hgl
+          - net.lutris.Lutris
+          - com.github.mtkennerly.ludusavi
+          - org.zdoom.GZDoom
+          - io.openrct2.OpenRCT2
+          - org.libretro.RetroArch
+          - org.sonic3air.Sonic3AIR
+          - org.srb2.SRB2
+          - org.srb2.SRB2Kart
+          - com.google.Chrome
+          - org.chromium.Chromium
+          - io.freetubeapp.FreeTube
+          - fr.handbrake.ghb
+          - org.keepassxc.KeePassXC
+          - com.obsproject.Studio
+          - org.mozilla.Thunderbird
+          - org.videolan.VLC
+          - com.visualstudio.code
+          - com.vscodium.codium
+          - com.github.tchx84.Flatseal
+        state: absent
+
+    - name: Cleanup remaining files and directories
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: absent
+      with_items:
+        - /etc/yum.repos.d/google-chrome.repo
+        - /etc/yum.repos.d/vscode.repo
+        - /etc/yum.repos.d/vscodium.repo
+        - /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:nalika:gzdoom.repo
+        - /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:nalika:doom.repo
+        - /etc/yum.repos.d/_copr:copr.fedorainfracloud.org:alastortenebris:dsda-doom.repo
+        - /etc/default/google-chrome
+        - /opt/google
+        - "{{ lookup('env', 'HOME') }}/.config/MangoHud"
+        - "{{ lookup('env', 'HOME') }}/.config/chromium"
+        - "{{ lookup('env', 'HOME') }}/.config/goverlay"
+        - "{{ lookup('env', 'HOME') }}/.config/heroic"
+        - "{{ lookup('env', 'HOME') }}/.config/solaar"
+        - "{{ lookup('env', 'HOME') }}/.config/gzdoom"
+        - "{{ lookup('env', 'HOME') }}/.config/google-chrome"
+        - "{{ lookup('env', 'HOME') }}/.config/keepassxc"
+        - "{{ lookup('env', 'HOME') }}/.config/Code"
+        - "{{ lookup('env', 'HOME') }}/.config/VSCodium"
+        - "{{ lookup('env', 'HOME') }}/.config/unity3d"
+        - "{{ lookup('env', 'HOME') }}/.local/share/crispy-doom"
+        - "{{ lookup('env', 'HOME') }}/.local/share/Steam"
+        - "{{ lookup('env', 'HOME') }}/.local/share/vulkan"
+        - "{{ lookup('env', 'HOME') }}/.cache/chromium"
+        - "{{ lookup('env', 'HOME') }}/.cache/google-chrome"
+        - "{{ lookup('env', 'HOME') }}/.cache/keepassxc"
+        - "{{ lookup('env', 'HOME') }}/.cache/protonfixes"
+        - "{{ lookup('env', 'HOME') }}/.steam"
+        - "{{ lookup('env', 'HOME') }}/.SteamCloud"
+        - "{{ lookup('env', 'HOME') }}/.steampath"
+        - "{{ lookup('env', 'HOME') }}/.steampid"
+        - "{{ lookup('env', 'HOME') }}/.prboom"
+        - "{{ lookup('env', 'HOME') }}/.dsda-doom"
+        - "{{ lookup('env', 'HOME') }}/.vscode"
+        - "{{ lookup('env', 'HOME') }}/.vscode-oss"
+        - "{{ lookup('env', 'HOME') }}/.var/app/com.github.mtkennerly.ludusavi"
+        - "{{ lookup('env', 'HOME') }}/.var/app/com.github.tchx84.Flatseal"
+        - "{{ lookup('env', 'HOME') }}/.var/app/io.freetubeapp.FreeTube"
+        - "{{ lookup('env', 'HOME') }}/.var/app/io.github.fabiangreffrath.Doom"
+        - "{{ lookup('env', 'HOME') }}/.var/app/net.davidotek.pupgui2"
+        - "{{ lookup('env', 'HOME') }}/.var/app/org.keepassxc.KeePassXC"
+        - "{{ lookup('env', 'HOME') }}/.var/app/org.videolan.VLC"
+        - "{{ lookup('env', 'HOME') }}/.var/app/org.zdoom.GZDoom"
