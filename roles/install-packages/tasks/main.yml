@@ -52,6 +52,7 @@
       - edk2-tools
       - elfutils-libelf-devel
       - exfatprogs
+      - ffmpeg-free
       - gawk
       - gstreamer1-plugin-openh264
       - gtk3
