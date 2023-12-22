@@ -168,6 +168,9 @@
     ###### System Configs ######
     ############################
 
+    # Install general packages?
+    install_packages: false
+
     # Set SELinux to permissive?
     selinux_permissive: false
 
