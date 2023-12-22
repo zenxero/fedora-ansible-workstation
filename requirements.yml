@@ -10,3 +10,4 @@
 # in order to install flatpaks and add copr repos
 collections:
   - name: community.general
+  - name: ansible.posix
