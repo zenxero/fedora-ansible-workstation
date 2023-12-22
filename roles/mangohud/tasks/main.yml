@@ -43,7 +43,7 @@
 
     - name: Install the Mangohud flatpak from flathub
       community.general.flatpak:
-        name: org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
+        name: org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
         state: present
 
     - name: Create Mangohud config directory within Steam flatpak
