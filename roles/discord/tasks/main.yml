@@ -1,0 +1,18 @@
+---
+
+#
+# Discord
+#
+# This task installs the Flatpak version of Discord
+#
+
+
+# Install Discord flatpak if the install_discord variable is true
+- name: Install Discord flatpak
+  when: install_discord
+  block:
+
+    - name: Install the Discord flatpak from flathub
+      community.general.flatpak:
+        name: com.discordapp.Discord
+        state: present

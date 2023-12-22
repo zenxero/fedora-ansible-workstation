@@ -28,6 +28,7 @@
     - sonic3air
     - srb2
     - srb2-kart
+    - discord
     - chrome
     - chromium
     - corectrl
@@ -107,6 +108,9 @@
     ############################
     ######      Misc      ######
     ############################
+
+    # Install Discord flatpak?
+    install_discord: false
 
     # Install Chrome RPM package?
     install_chrome: false
