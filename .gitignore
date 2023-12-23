@@ -1,0 +1,14 @@
+#
+# A gitignore file specifies intentionally untracked files that Git should ignore.
+# Files already tracked by Git are not affected.
+# See the Git SCM .gitignore page for more information:
+# https://git-scm.com/docs/gitignore
+#
+
+# Ignore these directories:
+# ======================
+.vscode
+*code-workspace*
+
+# Ignore these files and file types:
+# ======================
