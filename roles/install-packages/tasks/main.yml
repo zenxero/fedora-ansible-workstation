@@ -30,75 +30,23 @@
     update_cache: true
   when: ansible_distribution == 'Fedora'
 
-# Install extra packages if the install_packages variable is true
-- name: Install extra packages
-  when: install_packages
+# Install some back packages if the install_basic_packages variable is true
+- name: Install basic packages
+  when: install_basic_packages
   block:
 
-    - name: Install the 'Development tools' package group
-      ansible.builtin.dnf:
-        name: '@Development tools'
-        state: present
-        update_cache: true
-
-    - name: Install the 'C Development Tools and Libraries' package group
-      ansible.builtin.dnf:
-        name: '@C Development Tools and Libraries'
-        state: present
-        update_cache: true
-
-    - name: Install packages
+    - name: Install basic packages
       ansible.builtin.dnf:
         name:
-          - acpid
-          - cmake
           - curl
-          - dkms
-          - edk2-tools
-          - elfutils-libelf-devel
-          - exfatprogs
-          - ffmpeg-free
-          - gawk
-          - gstreamer1-plugin-openh264
-          - gtk3
+          - git
           - htop
-          - iftop
-          - iotop
-          - ipcalc
-          - jq
-          - kate
-          - kernel-devel
-          - kernel-headers
-          - libcurl
-          - libcurl-devel
-          - libglvnd-devel
-          - libglvnd-glx
-          - libglvnd-opengl
-          - libmad
-          - libmad-devel
-          - libvorbis
-          - libvorbis-devel
-          - libusb
-          - lshw
-          - make
           - mozilla-openh264
           - ncdu
-          - p7zip
-          - procps
           - screen
-          - SDL2
-          - SDL2-devel
+          - tmux
           - tree
-          - unzip
-          - usbutils
           - vim
-          - webkit2gtk3
           - wget
-          - xdg-user-dirs
-          - xdotool
-          - xprop
-          - xrandr
-          - xwininfo
-          - yad
         state: present
         update_cache: true
