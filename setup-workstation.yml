@@ -14,7 +14,7 @@
     - selinux
     - firewalld
     - install-packages
-    - extra-packages
+    - flathub
     - steam
     - protonup
     - mangohud
@@ -168,8 +168,8 @@
     ###### System Configs ######
     ############################
 
-    # Install general packages?
-    install_packages: false
+    # Install some basic packages?
+    install_basic_packages: false
 
     # Set SELinux to permissive?
     selinux_permissive: false
