@@ -14,7 +14,7 @@
     - name: Install Heroic
       ansible.builtin.dnf:
         name:
-          - 'https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.7.0/heroic-2.7.0.x86_64.rpm'
+          - 'https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/download/v2.11.0/heroic-2.11.0.x86_64.rpm'
         state: present
         disable_gpg_check: true
         validate_certs: false
