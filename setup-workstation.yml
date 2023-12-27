@@ -25,6 +25,7 @@
     - dsda-doom
     - openrct2
     - retroarch
+    - duckstation
     - sonic3air
     - srb2
     - srb2-kart
@@ -95,6 +96,9 @@
 
     # Install Retroarch flatpak?
     install_retroarch_flatpak: false
+
+    # Install Duckstation flatpak?
+    install_duckstation_flatpak: false
 
     # Install Sonic Robo Blast 2 flatpak?
     install_srb2_flatpak: false
