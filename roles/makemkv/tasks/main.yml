@@ -1,0 +1,17 @@
+---
+
+#
+# MakeMKV
+#
+# This task installs the Flatpak version of MakeMKV
+#
+
+# Install MakeMKV flatpak if the install_makemkv_flatpak variable is true
+- name: Install MakeMKV flatpak
+  when: install_makemkv_flatpak
+  block:
+
+    - name: Install the MakeMKV flatpak from flathub
+      community.general.flatpak:
+        name: com.makemkv.MakeMKV
+        state: present
