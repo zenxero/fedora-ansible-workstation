@@ -53,6 +53,7 @@
         name:
           - com.valvesoftware.Steam
           - net.davidotek.pupgui2
+          - org.freedesktop.Platform.VulkanLayer.MangoHud//23.08
           - org.freedesktop.Platform.VulkanLayer.MangoHud//22.08
           - org.freedesktop.Platform.VulkanLayer.MangoHud
           - com.heroicgameslauncher.hgl
