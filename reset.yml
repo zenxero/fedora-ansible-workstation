@@ -71,6 +71,7 @@
           - org.chromium.Chromium
           - io.freetubeapp.FreeTube
           - fr.handbrake.ghb
+          - com.makemkv.MakeMKV
           - org.keepassxc.KeePassXC
           - com.obsproject.Studio
           - org.mozilla.Thunderbird
