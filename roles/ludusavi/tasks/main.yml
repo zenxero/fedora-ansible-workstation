@@ -9,7 +9,7 @@
 
 # Install Ludusavi flatpak if the install_ludusavi variable is true
 - name: Install Ludusavi flatpak
-  when: install_ludusavi
+  when: install_ludusavi_flatpak
   block:
 
     - name: Install the Ludusavi flatpak from flathub
