@@ -9,7 +9,7 @@
 
 # Install Discord flatpak if the install_discord variable is true
 - name: Install Discord flatpak
-  when: install_discord
+  when: install_discord_flatpak
   block:
 
     - name: Install the Discord flatpak from flathub

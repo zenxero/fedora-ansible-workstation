@@ -121,7 +121,7 @@
     ######    Flatpaks    ######
 
     # Install Discord flatpak?
-    install_discord: false
+    install_discord_flatpak: false
 
     # Install Chrome flatpak?
     install_chrome_flatpak: false
