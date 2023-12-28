@@ -9,7 +9,7 @@
 
 # Install Freetube flatpak if the install_freetube variable is true
 - name: Install Freetube flatpak
-  when: install_freetube
+  when: install_freetube_flatpak
   block:
 
     - name: Install the Freetube flatpak from flathub

@@ -154,7 +154,7 @@
     install_vlc_flatpak: false
 
     # Install Freetube flatpak?
-    install_freetube: false
+    install_freetube_flatpak: false
 
     ######      RPMs      ######
 
