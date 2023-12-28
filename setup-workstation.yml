@@ -151,7 +151,7 @@
     install_obs_flatpak: false
 
     # Install VLC flatpak?
-    install_vlc: false
+    install_vlc_flatpak: false
 
     # Install Freetube flatpak?
     install_freetube: false

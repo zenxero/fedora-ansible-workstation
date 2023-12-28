@@ -9,7 +9,7 @@
 
 # Install VLC flatpak if the install_vlc variable is true
 - name: Install VLC flatpak
-  when: install_vlc
+  when: install_vlc_flatpak
   block:
 
     - name: Install the VLC flatpak from flathub
