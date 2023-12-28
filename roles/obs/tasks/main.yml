@@ -8,7 +8,7 @@
 
 # Install OBS flatpak if the install_obs variable is true
 - name: Install OBS flatpak
-  when: install_obs
+  when: install_obs_flatpak
   block:
 
     - name: Install the OBS Studio flatpak from flathub

@@ -148,7 +148,7 @@
     install_makemkv_flatpak: false
 
     # Install OBS Studio flatpak?
-    install_obs: false
+    install_obs_flatpak: false
 
     # Install VLC flatpak?
     install_vlc: false
