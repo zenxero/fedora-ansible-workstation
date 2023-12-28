@@ -52,29 +52,19 @@
     ######     Gaming     ######
     ############################
 
+    ######    Flatpaks    ######
+
     # Install ProtonUp-QT flatpak?
     install_protonup: false
-
-    # Install Steam RPM package?
-    install_steam: false
 
     # Install Steam flatpak?
     install_steam_flatpak: false
 
-    # Install Mangohud performance overlay RPM package?
-    install_mangohud: false
-
     # Install Mangohud performance overlay flatpak?
     install_mangohud_flatpak: false
 
-    # Install Heroic Games Launcher RPM package?
-    install_heroic: false
-
     # Install Heroic Games Launcher flatpak?
     install_heroic_flatpak: false
-
-    # Install Lutris RPM package?
-    install_lutris: false
 
     # Install Lutris flatpak?
     install_lutris_flatpak: false
@@ -82,14 +72,8 @@
     # Install Ludusavi game save backup utility flatpak?
     install_ludusavi: false
 
-    # Install GZDoom RPM package?
-    install_gzdoom: false
-
     # Install GZDoom flatpak?
     install_gzdoom_flatpak: false
-
-    # Install dsda-doom RPM package?
-    install_dsdadoom: false
 
     # Install OpenRCT2 flatpak?
     install_openrct2_flatpak: false
@@ -109,54 +93,59 @@
     # Install Sonic 3 AIR flatpak?
     install_sonic3air_flatpak: false
 
+    ######      RPMs      ######
+
+    # Install Steam RPM package?
+    install_steam: false
+
+    # Install Mangohud performance overlay RPM package?
+    install_mangohud: false
+
+    # Install Heroic Games Launcher RPM package?
+    install_heroic: false
+
+    # Install Lutris RPM package?
+    install_lutris: false
+
+    # Install GZDoom RPM package?
+    install_gzdoom: false
+
+    # Install dsda-doom RPM package?
+    install_dsdadoom: false
+
+
     ############################
     ######      Misc      ######
     ############################
 
+    ######    Flatpaks    ######
+
     # Install Discord flatpak?
     install_discord: false
-
-    # Install Chrome RPM package?
-    install_chrome: false
 
     # Install Chrome flatpak?
     install_chrome_flatpak: false
 
-    # Install Chromium RPM Package?
-    install_chromium: false
-
     # Install Chromium flatpak?
     install_chromium_flatpak: false
-
-    # Install Thunderbird RPM package?
-    install_thunderbird: false
 
     # Install Thunderbird flatpak?
     install_thunderbird_flatpak: false
 
-    # Install VSCode RPM package?
-    install_vscode: false
-
     # Install VSCode flatpak?
     install_vscode_flatpak: false
-
-    # Install VSCodium RPM package?
-    install_vscodium: false
 
     # Install VSCodium flatpak?
     install_vscodium_flatpak: false
 
-    # Install KeepassXC RPM package?
-    install_keepassxc: false
-
     # Install KeepassXC flatpak?
     install_keepassxc_flatpak: false
 
-    # Install Handbrake RPM package?
-    install_handbrake: false
-
     # Install Handbrake flatpak?
     install_handbrake_flatpak: false
+
+    # Install MakeMKV flatpak?
+    install_makemkv_flatpak: false
 
     # Install OBS Studio flatpak?
     install_obs: false
@@ -166,6 +155,29 @@
 
     # Install Freetube flatpak?
     install_freetube: false
+
+    ######      RPMs      ######
+
+    # Install Chrome RPM package?
+    install_chrome: false
+
+    # Install Chromium RPM Package?
+    install_chromium: false
+
+    # Install Thunderbird RPM package?
+    install_thunderbird: false
+
+    # Install VSCode RPM package?
+    install_vscode: false
+
+    # Install VSCodium RPM package?
+    install_vscodium: false
+
+    # Install KeepassXC RPM package?
+    install_keepassxc: false
+
+    # Install Handbrake RPM package?
+    install_handbrake: false
 
 
     ############################
