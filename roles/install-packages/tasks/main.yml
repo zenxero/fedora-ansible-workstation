@@ -43,6 +43,8 @@
           - htop
           - mozilla-openh264
           - ncdu
+          - neofetch
+          - rclone
           - screen
           - tmux
           - tree
