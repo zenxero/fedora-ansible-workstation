@@ -4,6 +4,7 @@
 # KeepassXC
 #
 # This task installs either the RPM or Flatpak version of KeepassXC
+# https://flathub.org/apps/org.keepassxc.KeePassXC
 #
 
 # Install keepassxc if the install_keepassxc variable is true
