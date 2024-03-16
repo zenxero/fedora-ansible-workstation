@@ -4,6 +4,7 @@
 # MakeMKV
 #
 # This task installs the Flatpak version of MakeMKV
+# https://flathub.org/apps/com.makemkv.MakeMKV
 #
 
 # Install MakeMKV flatpak if the install_makemkv_flatpak variable is true
