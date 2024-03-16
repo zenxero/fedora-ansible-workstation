@@ -34,6 +34,7 @@
     - chromium
     - corectrl
     - freetube
+    - warehouse
     - handbrake
     - makemkv
     - kdiskmark
@@ -156,6 +157,9 @@
 
     # Install Freetube flatpak?
     install_freetube_flatpak: false
+
+    # Install Warehouse flatpak?
+    install_warehouse_flatpak: false
 
     ######      RPMs      ######
 
