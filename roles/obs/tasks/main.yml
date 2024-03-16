@@ -4,6 +4,7 @@
 # OBS
 #
 # This task installs the Flatpak version of OBS
+# https://flathub.org/apps/com.obsproject.Studio
 #
 
 # Install OBS flatpak if the install_obs variable is true
