@@ -4,6 +4,7 @@
 # ProtonUp-QT
 #
 # This task installs the Flatpak version of ProtonUp-QT
+# https://flathub.org/apps/net.davidotek.pupgui2
 #
 
 # Install ProtonUp-QT if the install_protonup variable is true
