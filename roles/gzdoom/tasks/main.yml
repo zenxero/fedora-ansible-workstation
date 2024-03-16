@@ -24,6 +24,7 @@
         state: present
         update_cache: true
 
+# https://flathub.org/apps/org.zdoom.GZDoom
 # Install gzdoom flatpak if the install_gzdoom_flatpak variable is true
 - name: Install GZDoom flatpak
   when: install_gzdoom_flatpak
