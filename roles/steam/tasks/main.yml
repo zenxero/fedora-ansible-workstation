@@ -21,6 +21,7 @@
         state: present
         update_cache: true
 
+# https://flathub.org/apps/com.valvesoftware.Steam
 # Install Steam flatpak if the install_steam_flatpak variable is true
 - name: Install Steam flatpak
   when: install_steam_flatpak
