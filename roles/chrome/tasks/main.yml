@@ -32,6 +32,7 @@
         state: present
         update_cache: true
 
+# https://flathub.org/apps/com.google.Chrome
 # Install Chrome flatpak if the install_chrome_flatpak variable is true
 - name: Install Chrome flatpak
   when: install_chrome_flatpak
