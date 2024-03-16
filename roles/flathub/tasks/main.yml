@@ -19,6 +19,7 @@
 - name: Add flathub repo manually
   ansible.builtin.command: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
+# https://flathub.org/apps/com.github.tchx84.Flatseal
 - name: Install the Flatseal flatpak from flathub
   community.general.flatpak:
     name: com.github.tchx84.Flatseal
