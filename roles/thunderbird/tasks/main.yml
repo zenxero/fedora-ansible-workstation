@@ -4,6 +4,7 @@
 # Thunderbird
 #
 # This task installs either the RPM or Flatpak version of Thunderbird
+# https://flathub.org/apps/org.mozilla.Thunderbird
 #
 
 # Install thunderbird if the install_thunderbird variable is true
