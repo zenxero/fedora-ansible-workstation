@@ -4,6 +4,7 @@
 # OpenRCT2
 #
 # This task installs the Flatpak version of the Open Roller Coaster Tycoon 2 engine
+# https://flathub.org/apps/io.openrct2.OpenRCT2
 #
 
 # Install OpenRCT2 flatpak if the install_openrct2_flatpak variable is true
