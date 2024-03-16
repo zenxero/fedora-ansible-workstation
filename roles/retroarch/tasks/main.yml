@@ -4,6 +4,7 @@
 # Retroarch
 #
 # This task installs the Flatpak version of Retroarch
+# https://flathub.org/apps/org.libretro.RetroArch
 #
 
 # Install Retroarch flatpak if the install_retroarch_flatpak variable is true
