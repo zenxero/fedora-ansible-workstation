@@ -19,6 +19,7 @@
         state: present
         update_cache: true
 
+# https://flathub.org/apps/fr.handbrake.ghb
 # Install Handbrake flatpak if the install_handbrake_flatpak variable is true
 - name: Install Handbrake flatpak
   when: install_handbrake_flatpak
