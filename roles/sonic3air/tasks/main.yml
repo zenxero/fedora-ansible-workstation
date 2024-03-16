@@ -4,6 +4,7 @@
 # Sonic 3 AIR
 #
 # This task installs the Flatpak version of Sonic 3 AIR
+# https://flathub.org/apps/org.sonic3air.Sonic3AIR
 #
 
 # Install Sonic 3 AIR flatpak if the install_sonic3air_flatpak variable is true
