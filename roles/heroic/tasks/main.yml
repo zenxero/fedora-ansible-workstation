@@ -20,6 +20,7 @@
         validate_certs: false
         update_cache: true
 
+# https://flathub.org/apps/com.heroicgameslauncher.hgl
 # Install Heroic flatpak if the install_heroic_flatpak variable is true
 - name: Install Heroic flatpak
   when: install_heroic_flatpak
