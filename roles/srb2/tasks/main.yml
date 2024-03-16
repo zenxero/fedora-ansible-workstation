@@ -4,6 +4,7 @@
 # Sonic Robo Blast 2
 #
 # This task installs the Flatpak version of Sonic Robo Blast 2
+# https://flathub.org/apps/org.srb2.SRB2
 #
 
 # Install SRB2 flatpak if the install_srb2_flatpak variable is true
