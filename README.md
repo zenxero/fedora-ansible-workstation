@@ -2,7 +2,7 @@
 
 This Ansible playbook will set up a basic Fedora workstation with the packages and configs that I need. This is mostly geared towards setting up the system with a gaming focus. Options to install Steam, Mangohud, Heroic Games Launcher, OBS, etc. are included. All options in the main [setup-workstation.yml](setup-workstation.yml) file are simple True/False toggles. Choose which options you want and set them to True, then save the file and then run the playbook with Ansible.
 
-__NOTE:__ This has only been tested against Fedora Workstation 37, 38, and 39
+__NOTE:__ This has only been tested against Fedora Workstation KDE 37, 38, 39, and 40
 
 __NOTE:__ This playbook is configured to run against the local host.
 
