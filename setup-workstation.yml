@@ -163,7 +163,7 @@
     install_warehouse_flatpak: false
 
     # Install Gear Lever flatpak?
-    install_gearlever_flatpak: true
+    install_gearlever_flatpak: false
 
     ######      RPMs      ######
 
