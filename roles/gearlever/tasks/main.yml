@@ -1,0 +1,19 @@
+---
+
+#
+# Gear Lever
+#
+# This task installs the Gear Lever flatpak
+# https://flathub.org/apps/it.mijorus.gearlever
+#
+
+
+# Install Gear Lever flatpak if the install_gearlever_flatpak variable is true
+- name: Install Gear Lever flatpak
+  when: install_gearlever_flatpak
+  block:
+
+    - name: Install the Gear Lever flatpak from flathub
+      community.general.flatpak:
+        name: it.mijorus.gearlever
+        state: present

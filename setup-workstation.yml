@@ -35,6 +35,7 @@
     - corectrl
     - freetube
     - warehouse
+    - gearlever
     - handbrake
     - makemkv
     - kdiskmark
@@ -160,6 +161,9 @@
 
     # Install Warehouse flatpak?
     install_warehouse_flatpak: false
+
+    # Install Gear Lever flatpak?
+    install_gearlever_flatpak: true
 
     ######      RPMs      ######
 

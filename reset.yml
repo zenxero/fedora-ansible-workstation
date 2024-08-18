@@ -78,6 +78,8 @@
           - org.videolan.VLC
           - com.visualstudio.code
           - com.vscodium.codium
+          - it.mijorus.gearlever
+          - io.github.flattool.Warehouse
           - com.github.tchx84.Flatseal
         state: absent
 
@@ -149,3 +151,5 @@
         - "{{ lookup('env', 'HOME') }}/.var/app/com.valvesoftware.Steam"
         - "{{ lookup('env', 'HOME') }}/.var/app/com.visualstudio.code"
         - "{{ lookup('env', 'HOME') }}/.var/app/com.vscodium.codium"
+        - "{{ lookup('env', 'HOME') }}/.var/app/io.github.flattool.Warehouse"
+        - "{{ lookup('env', 'HOME') }}/.var/app/it.mijorus.gearlever"
